@@ -1,11 +1,13 @@
 # food-waste-app-AkaWeb
 Interactive and community-based food waste app group project developed using React.js, Node.js, Express and Tailwind CSS.
 
-# Echipa - AkaWeb (Răsmeriță Andra, Renghiuț Cătălina, Roșoiu Anca)
+# Echipa - AkaWeb 
+- Răsmeriță Andra, Renghiuț Cătălina, Roșoiu Anca
 
 Tema alocată - Food Waste App
 
-# Obiectiv - Realizarea unei aplicații web cu scopul de a încuraja utilizatorii să conștientizeze risipa de alimente într-un mod distractiv și bazat pe comunitate
+# Obiectiv 
+- Realizarea unei aplicații web cu scopul de a încuraja utilizatorii să conștientizeze risipa de alimente într-un mod distractiv și bazat pe comunitate
 
 # Structură & funcționalități aplicație 
 
