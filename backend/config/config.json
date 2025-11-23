@@ -1,7 +1,7 @@
 {
   "development": {
     "dialect": "sqlite",
-    "storage": "/app/data/app.sqlite", 
+    "storage": "data/food-waste-app-akaweb-dev.sqlite", 
     "seederStorage": "sequelize",
     "logging": false
   },
@@ -11,6 +11,7 @@
   },
   "production": {
     "dialect": "sqlite",
-    "storage": "app.sqlite"
+    "storage": "data/food-waste-app-akaweb.sqlite",
+    "logging": false
   }
 }

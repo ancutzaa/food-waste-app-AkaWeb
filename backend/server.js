@@ -1,37 +1,32 @@
 const express = require('express');
-const db = require('./models'); // Importăm conexiunea Sequelize
+const db = require('./models'); 
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-app.use(express.json()); // Permite Express să citească JSON din cererile HTTP
+app.use(express.json());
 
-// 🔑 Rută simplă de test
 app.get('/', (req, res) => {
-  res.status(200).send('Backend-ul Node.js rulează OK!');
+  res.send('Serverul food-waste-app-akaweb ruleaza cu succes.');
 });
 
-// 🔑 Rută de exemplu care interacționează cu baza de date
-app.get('/test-db', async (req, res) => {
-    try {
-        // Această linie verifică conexiunea la baza de date
-        await db.sequelize.authenticate();
-        res.status(200).send('Conexiunea la baza de date SQLite este funcțională!');
-    } catch (error) {
-        console.error('Eroare la conexiunea DB:', error);
-        res.status(500).send('Conexiunea la baza de date a eșuat!');
-    }
-});
+async function startServer() {
+  try {
+    await db.sequelize.authenticate();
+    console.log('Conexiunea la baza de date SQLite a fost stabilita cu succes.');
 
+    await db.sequelize.sync({ alter: true });
+    console.log('Toate modelele (tabelele) au fost sincronizate cu succes. Baza de date este gata!');
 
-// Sincronizarea și pornirea serverului
-// ATENȚIE: Sincronizarea automată ('sync') nu este recomandată în producție.
-// Noi vom folosi MIGRAȚIILE pentru a modifica structura.
-db.sequelize.sync({ alter: true }).then(() => { 
-  app.listen(PORT, () => {
-    console.log(`Serverul Express rulează pe portul: ${PORT}`);
-    console.log('Folosiți "docker compose down" la finalul sesiunii.');
-  });
-}).catch(err => {
-    console.error('Eroare la sincronizarea bazei de date:', err);
-});
+    app.listen(PORT, () => {
+      console.log(`Serverul rulează pe portul http://localhost:${PORT}`);
+      console.log(`Fișierul bazei de date (SQLite) se află în: backend/data/food-waste-app-akaweb-dev.sqlite`);
+    });
+
+  } catch (error) {
+    console.error('Eroare la pornirea serverului sau la conectarea la DB:', error.message);
+    process.exit(1); 
+  }
+}
+
+startServer();
