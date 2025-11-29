@@ -7,7 +7,7 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Serverul food-waste-app-akaweb ruleaza cu succes.');
+  res.send('Serverul food-waste-app-akaweb ruleaza cu succes!!!');
 });
 
 async function startServer() {
@@ -16,10 +16,10 @@ async function startServer() {
     console.log('Conexiunea la baza de date SQLite a fost stabilita cu succes.');
 
     await db.sequelize.sync({ alter: true });
-    console.log('Toate modelele (tabelele) au fost sincronizate cu succes. Baza de date este gata!');
+    console.log('Toate modelele au fost sincronizate cu succes. Baza de date este gata!');
 
     app.listen(PORT, () => {
-      console.log(`Serverul rulează pe portul http://localhost:${PORT}`);
+      console.log(`Serverul RULEAZA pe portul http://localhost:${PORT}`);
       console.log(`Fișierul bazei de date (SQLite) se află în: backend/data/food-waste-app-akaweb-dev.sqlite`);
     });
 

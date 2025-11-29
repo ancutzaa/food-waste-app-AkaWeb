@@ -30,6 +30,12 @@ module.exports = (sequelize) => {
             allowNull: false,
             field: 'parola'
         },
+           descriere: {                 
+            type: DataTypes.TEXT,
+            allowNull: true,
+            field: 'descriere'
+}
+
     }, {
         tableName: 'Utilizatori', 
         timestamps: true, 

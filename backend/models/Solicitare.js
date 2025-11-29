@@ -31,7 +31,14 @@ module.exports = (sequelize) => {
             type: DataTypes.BIGINT,
             allowNull: false,
             field: 'status_solicitare'
-        }
+        },
+        nr_bucati: {                
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 1,
+            field: 'nr_bucati'
+        },
+
     }, {
         tableName: 'Solicitari', 
         timestamps: true,
