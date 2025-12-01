@@ -24,7 +24,7 @@ async function startServer() {
     await db.sequelize.authenticate();
     console.log('Conexiunea la baza de date SQLite a fost stabilita cu succes.');
 
-    await db.sequelize.sync({ alter: true });
+    await db.sequelize.sync({ force: true });
     console.log('Toate modelele au fost sincronizate cu succes. Baza de date este gata!');
 
     app.listen(PORT, () => {
