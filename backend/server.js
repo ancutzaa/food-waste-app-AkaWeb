@@ -1,10 +1,11 @@
 const express = require('express');
 const db = require('./models'); 
-
+const friendRoutes = require('./routes/friendRoutes');
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use('/api/friends',friendRoutes)
 
 app.get('/', (req, res) => {
   res.send('Serverul food-waste-app-akaweb ruleaza cu succes!!!');
