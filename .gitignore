@@ -137,3 +137,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Anti-conflict db files
+backend/data/*.sqlite
+backend/data/*.db
+
+backend/logs/
