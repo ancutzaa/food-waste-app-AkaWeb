@@ -2,6 +2,10 @@ const express = require('express');
 const db = require('./models');
 const friendRoutes = require('./routes/friendRoutes');
 const groupRoutes=require('./routes/groupRouter');
+const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
+const userRoutes = require('./routes/userRoutes');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
@@ -9,6 +13,12 @@ const PORT = 3000;
 app.use(express.json());
 app.use('/api/friends', friendRoutes); 
 app.use('/api/groups',groupRoutes);
+
+app.use(cors());
+app.use('/api/friends', friendRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
 app.get('/', (req, res) => {
   res.send('Serverul food-waste-app-akaweb ruleaza cu succes!!!');
