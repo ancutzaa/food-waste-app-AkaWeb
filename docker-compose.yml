@@ -1,29 +1,26 @@
-version: '3.8'
-
 services:
   backend:
-    build: 
-      context: .
-      dockerfile: backend/Dockerfile
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    environment: 
-      NODE_ENV: development
-      PORT: 3000
     volumes:
-      - ./backend:/app 
-      - /app/node_modules 
-      - ./backend/data:/app/data
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      PORT: 3000
+      NODE_ENV: development
     command: npm run dev
-    
+
   frontend:
     build:
-      context: .
-      dockerfile: frontend/Dockerfile
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
-      - "5173:5173" 
+      - "5173:5173"
     volumes:
-      - ./frontend:/app 
+      - ./frontend:/app
       - /app/node_modules
     depends_on:
       - backend
