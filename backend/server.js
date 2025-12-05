@@ -6,6 +6,7 @@ const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 const marketplaceRoutes = require('./routes/marketplaceRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
 const cors = require('cors');
 
 const app = express();
@@ -21,6 +22,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/friends', friendRoutes);
 app.use('/api/marketplace', marketplaceRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 
 app.get('/', (req, res) => {
