@@ -1,11 +1,11 @@
 FROM node:20-alpine
 WORKDIR /app
 
-COPY backend/package*.json ./
+COPY package*.json ./
 RUN npm install
 
-COPY backend/. .
+COPY . .
 RUN npm rebuild sqlite3
 EXPOSE 3000
 
-CMD ["npm", "start", "dev"]
+CMD ["npm", "run", "dev"]
