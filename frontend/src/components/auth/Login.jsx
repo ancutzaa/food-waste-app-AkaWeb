@@ -12,7 +12,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    // ... (restul logicii rămâne la fel)
     e.preventDefault();
     setError('');
     try {
@@ -52,7 +51,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-emerald-50 px-4 font-sans">
       <div className="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md">
         
-        {/* ... (Logo și Titlu rămân la fel) ... */}
+        {}
         <div className="flex justify-center mb-4">
           <div className="bg-emerald-100 p-3 rounded-2xl">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -77,22 +76,20 @@ const Login = () => {
             />
           </div>
 
-          {/* 2. ZONA PAROLĂ MODIFICATĂ */}
+          {}
           <div className="relative">
             <label className="block text-sm font-medium text-gray-700 mb-1 pl-1">Parola</label>
             <input 
-              // Aici schimbăm tipul dinamic
               type={showPassword ? "text" : "password"} 
               value={parola}
               onChange={(e) => setParola(e.target.value)}
-              // Adăugăm 'pr-10' ca scrisul să nu intre sub iconiță
               className="w-full px-4 py-3 pr-12 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-colors"
               required 
             />
             
-            {/* Butonul cu Ochișor */}
+            {/* Butonul cu Ochisor */}
             <button
-              type="button" // Important! Să nu dea submit la formular
+              type="button" 
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-4 top-[38px] text-gray-400 hover:text-emerald-600 transition-colors"
             >
@@ -103,7 +100,7 @@ const Login = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               ) : (
-                // Icoana Ochi Închis
+                // Icoana Ochi Inchis
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a10.059 10.059 0 011.591-3.077" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6.101 6.101a10.059 10.059 0 015.899-1.101c4.478 0 8.268 2.943 9.542 7a10.057 10.057 0 01-1.591 3.077" />
